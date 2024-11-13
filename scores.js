@@ -1,13 +1,8 @@
 async function fetchLiveNFLData() {
-    const apiKey = 'ad824b03d2134c6ba75c6cb7fdfe2bc9';
-    const url = 'https://api.sportsdata.io/v3/nfl/scores/json/LiveGameStats';
+    const url = 'http://localhost:3000/api/live-nfl-scores'; // Your local server endpoint
 
     try {
-        const response = await fetch(url, {
-            headers: {
-                'Ocp-Apim-Subscription-Key': apiKey
-            }
-        });
+        const response = await fetch(url);
         const data = await response.json();
         displayNFLData(data);
     } catch (error) {
